@@ -27,7 +27,6 @@ function App() {
               }),
               canisterId,
           });
-          console.log("Canister", _canister);
           return _canister;
       };
 
@@ -45,12 +44,10 @@ function App() {
         let canisterScore = await getCanister(null,idlScore,xpCanisterId)
         // en allScores se va a guardar  .funcion interna
         let allScores = await canisterScore.getAllScores()
-        console.log("scores",allScores)
 
         let canisterUser = await getCanister(null,idlUser,playersCanisterId)
 
         let allPlayers = await canisterUser.getAllPlayers()
-        console.log("players", allPlayers)
 
           //se renueva el valor de data
         // setData([])
@@ -66,8 +63,6 @@ function App() {
           _data.push (allPlayers[i][1])
       
         }
-
-        console.log("data", _data)
 
         for(let i = 0; i<_data.length; i++) {
           //hacer match con los nuevos registros *(tablas)
@@ -89,7 +84,6 @@ function App() {
           }
         }
 
-        console.log("data2", _data)
         //pasar el data local al data global
         setData (_data.sort((a, b) => b.score - a.score))
            }
